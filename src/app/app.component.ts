@@ -5,6 +5,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ItemComponent } from './pages/item/item.component';
+import { InfoPagesService } from './services/info-pages.service';
 
 @Component({
   selector: 'app-root',
@@ -14,5 +15,5 @@ import { ItemComponent } from './pages/item/item.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'Angular-webApp';
+  constructor(private _infoPages:InfoPagesService){}
 }
