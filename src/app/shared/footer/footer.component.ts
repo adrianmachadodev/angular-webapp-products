@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLinkActive, RouterLink } from "@angular/router";
+import { InfoPagesService } from '../../services/info-pages.service';
 
 @Component({
   selector: 'app-footer',
@@ -11,6 +12,7 @@ import { RouterLinkActive, RouterLink } from "@angular/router";
 export class FooterComponent {
   year:number = new Date().getFullYear();
 
+  constructor(public _service:InfoPagesService){}
   
 
 
