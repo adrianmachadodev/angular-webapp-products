@@ -6,6 +6,7 @@ import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ItemComponent } from './pages/item/item.component';
 import { InfoPagesService } from './services/info-pages.service';
+import { ProductsService } from './services/products.service';
 
 @Component({
   selector: 'app-root',
@@ -15,5 +16,5 @@ import { InfoPagesService } from './services/info-pages.service';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  constructor(private _infoPages:InfoPagesService){}
+  constructor(private _infoPages:InfoPagesService, _products:ProductsService){}
 }

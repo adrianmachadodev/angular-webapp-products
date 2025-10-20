@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { InfoPagesService } from '../../services/info-pages.service';
 
 @Component({
   selector: 'app-about',
@@ -8,5 +9,10 @@ import { Component } from '@angular/core';
   styleUrl: './about.component.scss'
 })
 export class AboutComponent {
+  employees:any[] = []
+
+  constructor(public _service:InfoPagesService){
+  }
+
 
 }

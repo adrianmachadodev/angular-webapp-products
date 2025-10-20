@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from "@angular/router";
+import { ProductsService } from '../../services/products.service';
+import { NgClass } from "../../../../node_modules/@angular/common/index";
 
 @Component({
   selector: 'app-portfolio',
@@ -9,5 +11,7 @@ import { RouterLink } from "@angular/router";
   styleUrl: './portfolio.component.scss'
 })
 export class PortfolioComponent {
+
+  constructor(public productService:ProductsService){}
 
 }

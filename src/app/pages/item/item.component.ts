@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { InfoPagesService } from '../../services/info-pages.service';
 
 @Component({
   selector: 'app-item',
@@ -8,5 +9,6 @@ import { Component } from '@angular/core';
   styleUrl: './item.component.scss'
 })
 export class ItemComponent {
+
 
 }
