@@ -18,4 +18,8 @@ export class ProductsService {
       this.products = res;
     });
   }
+
+  getProductById(id:any){
+    return this.http.get(`https://angular-webapp-a6988-default-rtdb.firebaseio.com/products/${id}.json`);
+  }
 }
