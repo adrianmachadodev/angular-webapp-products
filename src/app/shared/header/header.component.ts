@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 import { InfoPagesService } from '../../services/info-pages.service';
 
 @Component({
@@ -11,5 +11,13 @@ import { InfoPagesService } from '../../services/info-pages.service';
 })
 export class HeaderComponent {
 
-  constructor(public _service:InfoPagesService){}
+  constructor(public _service:InfoPagesService, private router:Router){}
+
+  searchProduct(search:any){
+    if(search.length < 1){
+      return
+    }
+
+    this.router.navigate(['/search', search])
+  }
 }
