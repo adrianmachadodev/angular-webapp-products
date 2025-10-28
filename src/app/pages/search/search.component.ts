@@ -15,7 +15,7 @@ export class SearchComponent {
     
     this.route.params.subscribe((res:any) => {
       console.log(res.product);
-      this.productServices.productsFiltered(res.product);
+      this.productServices.searchProduct(res.product);
     })
   }
 

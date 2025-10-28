@@ -15,20 +15,41 @@ export class ProductsService {
   }
 
   private getProducts() {
-    this.http.get(this.url).subscribe((res:any) => {
-      this.products = res;
-    });
+
+    return new Promise( (resolve, reject) => {
+      this.http.get(this.url).subscribe((res:any) => {
+        this.products = res;
+        resolve(res);
+      });
+    })
   }
 
   getProductById(id:any){
     return this.http.get(`https://angular-webapp-a6988-default-rtdb.firebaseio.com/products/${id}.json`);
   }
 
-  productsFiltered(products:string){
-    this.productFilter = this.products.filter((product:any) => {
-      return true
-    })
 
-    console.log('product filter', this.productFilter);
+  searchProduct(search:string):void{
+
+    if(this.products.length === 0){
+      this.getProducts().then(() => {
+        this.productsFiltered(search)
+      })
+    }else{
+      this.productsFiltered(search);
+    }
+
+  }
+
+  productsFiltered(search:string){
+    const titleLower = search.toLocaleLowerCase();
+    this.productFilter = [];
+    
+    this.products.forEach((prod:any) => {
+      const prodCategory = prod.categoria.toLocaleLowerCase();
+      if(prod.categoria.indexOf(search)>= 0 || prodCategory.indexOf(titleLower) >= 0){
+        this.productFilter.push(prod)
+      }
+    })
   }
 }
